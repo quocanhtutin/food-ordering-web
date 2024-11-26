@@ -1,7 +1,18 @@
 import React from 'react'
 import './ExploreMenu.css'
 import { menu_list } from '../../assets/assets'
-const ExploreMenu = ({category, setCategory}) => {
+
+const ExploreMenu = ({ category, setCategory }) => {
+
+    const handleCategoryClick = (menu_name) => {
+        setCategory(prev => {
+            if (prev.includes(menu_name)) {
+                return prev.filter(cat => cat !== menu_name);
+            } else {
+                return [...prev, menu_name];
+            }
+        });
+    };
 
     return (
         <div className='explore-menu' id='explore-menu'>
@@ -11,14 +22,12 @@ const ExploreMenu = ({category, setCategory}) => {
                 {
                     menu_list.map((item, index) => {
                         return (
-                            <div onClick={()=>setCategory(prev=>prev===item.menu_name?"All":item.menu_name)} className="explore-menu-list-item" key={index}>
-                                <img className={category===item.menu_name?"active":""} src={item.menu_image} alt="" />
+                            <div onClick={() => handleCategoryClick(item.menu_name)} className="explore-menu-list-item" key={index}>
+                                <img className={category.includes(item.menu_name) ? "active" : ""} src={item.menu_image} alt="" />
                                 <p>{item.menu_name}</p>
                             </div>
-                            
                         )
-                    }
-                    )
+                    })
                 }
             </div>
             <hr />

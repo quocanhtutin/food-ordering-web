@@ -7,6 +7,11 @@
     animation: fadeIn 1s;
 }
 
+.food-item:hover{
+    box-shadow: 0px 0px 20px #00000015;
+    transform: translateY(-5px);
+}
+
 .food-item-image{
     width: 100%;
     border-radius: 15px 15px 0 0;
