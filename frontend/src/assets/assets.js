@@ -100,7 +100,7 @@ export const menu_list = [
         menu_image: menu_4
     },
     {
-        menu_name: "Ăn Vặt",
+        menu_name: "Ăn vặt",
         menu_image: menu_5
     },
     {
@@ -123,7 +123,7 @@ export const food_list = [
         image: food_1,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Bún-Phở-Cháo"
     },
     {
         _id: "2",
@@ -131,77 +131,77 @@ export const food_list = [
         image: food_2,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Cơm"
     }, {
         _id: "3",
         name: "Bò sốt vang",
         image: food_3,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Cơm"
     }, {
         _id: "4",
         name: "Cơm",
         image: food_4,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Cơm"
     }, {
         _id: "5",
         name: "Chân gà xả tắc",
         image: food_5,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Ăn vặt"
     }, {
         _id: "6",
         name: "Pizza 4P",
         image: food_6,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Pizza"
     }, {
         _id: "7",
         name: "Bánh mỳ thịt nướng",
         image: food_7,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Bánh mì - xôi"
     }, {
         _id: "8",
         name: "Cơm rang dưa bò",
         image: food_8,
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Cơm"
     }, {
         _id: "9",
         name: "Mỳ trộn thập cẩm",
         image: food_9,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Mỳ"
     }, {
         _id: "10",
         name: "Xiên bẩn",
         image: food_10,
         price: 22,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Ăn vặt"
     }, {
         _id: "11",
         name: "Mỳ trộn indomi",
         image: food_11,
         price: 10,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Mỳ"
     }, {
         _id: "12",
         name: "Nem chua rán",
         image: food_12,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Ăn vặt"
     },
     {
         _id: "13",
@@ -209,7 +209,7 @@ export const food_list = [
         image: food_13,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Ăn vặt"
     },
     {
         _id: "14",
@@ -217,28 +217,28 @@ export const food_list = [
         image: food_14,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Bánh mỳ"
     }, {
         _id: "15",
         name: "Sandwich",
         image: food_15,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Bánh mỳ"
     }, {
         _id: "16",
         name: "Bánh mỳ",
         image: food_16,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Bánh mỳ"
     }, {
         _id: "17",
         name: "Cup Cake",
         image: food_17,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        category: "Ăn vặt"
     }, {
         _id: "18",
         name: "Vegan Cake",
