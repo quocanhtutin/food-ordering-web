@@ -1,10 +1,10 @@
 .header{
-    height: 34vw;
+    height: 29vw;
     margin: 30px auto;
     background: url('/GrabFood-EX-Desktop-HeaderImageV1.jpg');
     background-size: contain no-repeat;
-    position: relative;
-    border-radius: 40px;
+    position:relative;
+    border-radius: 60px;
 }
 
 .header-contents{
