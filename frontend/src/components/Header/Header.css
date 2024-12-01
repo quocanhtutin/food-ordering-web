@@ -37,15 +37,16 @@
 .header button{
     background: transparent;
     font-size: 16px;
-    color: white;
-    border: 1px solid;
+    color: #49557e;
+    border: 1px solid tomato;
     padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
+    background-color: white;
 }
 
 .header button:hover{
-    background: white;
-    color: tomato;
+    background: tomato;
+    color: white;
 }
