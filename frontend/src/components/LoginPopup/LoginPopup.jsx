@@ -9,19 +9,40 @@ const LoginPopup = ({ setShowLogin }) => {
         <div className="login-popup">
             <form className="login-popup-container">
                 <div className="login-popup-title">
-                    <h2>{curState}</h2>
+                    <h2>{curState === "Login" ? "Đăng nhập" : curState === "Forgot password" ? "Quên mật khẩu" : "Đăng ký"}</h2>
                     <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt='' />
                 </div>
                 <div className="login-popup-inputs">
-                    {curState === "Sign Up" && <input type="text" placeholder="Name" required />}
-                    <input type="text" placeholder="Email" required />
-                    <input type="password" placeholder="Password" required />
+                    {curState === "Sign Up" &&
+                        <div className='sign-up'>
+                            <input type="text" placeholder="Tên" required />
+                            <input className='email' type="text" placeholder="Email" required />
+                            <input className='password' type="password" placeholder="Mật khẩu" required />
+                        </div>
+                    }
+                    
+                    {curState === "Forgot password" &&
+                        <div className="forgot-password">
+                            <input className='email' type="text" placeholder="Email" required />
+                            <p>Nhập mật khẩu bạn đã quên:</p>
+                            <input className='password' type="password" placeholder="Mật khẩu" required />
+                        </div>
+                    }
+                    {curState === "Login" &&
+                        <div className="login">
+                            <input className='email' type="text" placeholder="Email" required />
+                            <input className='password' type="password" placeholder="Mật khẩu" required />
+                        </div>
+                    }
                 </div>
-                <button>{curState === "Login" ? "Login" : "Create account"}</button>
-                {curState === "Login"
-                    ? <p>Don't have account? <span onClick={()=>setCurState("Sign Up")}>Create now</span> </p>
-                    : <p>Already have an account?<span onClick={()=>setCurState("Login")}>Login here</span></p>}
-                
+                <button>{curState === "Sign Up" ? "Đăng ký" : "Đăng nhập"}</button>
+                {curState === "Sign up"
+                    ? <div className='create-forgot'>
+                        <span onClick={() => setCurState("Forgot password")} className='forgot-pass'>Quên mật khẩu</span>
+                        <p>Chưa có tài khoản? <span onClick={() => setCurState("Sign Up")}>Đăng ký ngay</span> </p>
+                    </div>
+                    : <p className='lg'>Đã có tài khoản? <span onClick={() => setCurState("Login")}>Đăng nhập</span></p>}
+
             </form>
         </div>
     )

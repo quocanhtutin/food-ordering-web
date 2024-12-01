@@ -1,3 +1,4 @@
+
 .login-popup {
   position: fixed;
   top: 0;
@@ -15,7 +16,7 @@
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 400px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
 }
@@ -25,6 +26,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  user-select: none;
 }
 
 .login-popup-title h2 {
@@ -37,36 +39,94 @@
   height: 20px;
 }
 
-.login-popup-inputs {
-  display: flex;
-  flex-direction: column;
-}
-
 .login-popup-inputs input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px 40px; 
+  margin-bottom: 15px; 
+  border-radius: 10px; 
+  box-shadow:  rgba(50, 50, 93, 0.25) 0px 1px 1px -2px,rgba(0, 0, 0, 0.3) 0px 1px 7px -2px; 
+  background-color: white; 
+  color: #666; 
+  position: relative;
+  border: none;
+  width: 100%;
+  font-size: 16px;
 }
 
-button {
+.login-popup-inputs input:focus {
+  outline: none; 
+  box-shadow:rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.login-popup-inputs input::placeholder {
+  color: #b3bac2; 
+}
+
+.email {
+  background-image: url('https://i.ibb.co/xffp22F/email1.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px;
+}
+
+.email:focus {
+  background-image: url('https://i.ibb.co/w4thGb3/email2.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px;
+}
+
+.password {
+  background-image: url('https://i.ibb.co/cQCpkXp/pass1.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px;
+}
+
+.password:focus{
+  background-image: url('https://i.ibb.co/KV48kfB/pass2.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px;
+}
+
+
+.login-popup-inputs {
+  position: relative;
+}
+
+
+
+.login-popup-inputs input::before {
+  content: attr(data-icon);
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #b3bac2;
+}
+
+.login-popup-container button {
   padding: 10px;
   background-color: tomato;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   cursor: pointer;
-  width: 100%;
+  width: 30%;
+  margin-left: 35%;
+
 }
 
-button:hover {
-  background-color: #0056b3;
+.login-popup-container button :hover {
+  transform: scale(1.1);
 }
 
-.login-popup p {
-  margin-top: 10px;
+.login-popup .lg {
+   margin-top: 10px; 
   text-align: center;
 }
+
 
 .login-popup p span {
   color: tomato;
@@ -75,4 +135,19 @@ button:hover {
 
 .login-popup p span:hover {
   text-decoration: underline;
+}
+
+.login-popup span {
+  color: tomato;
+  cursor: pointer;
+}
+
+.login-popup span:hover {
+  text-decoration: underline;
+}
+
+.create-forgot{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
