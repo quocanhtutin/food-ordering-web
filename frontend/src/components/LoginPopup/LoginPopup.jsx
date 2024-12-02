@@ -36,7 +36,7 @@ const LoginPopup = ({ setShowLogin }) => {
                     }
                 </div>
                 <button>{curState === "Sign Up" ? "Đăng ký" : "Đăng nhập"}</button>
-                {curState === "Sign up"
+                {curState === "Login"
                     ? <div className='create-forgot'>
                         <span onClick={() => setCurState("Forgot password")} className='forgot-pass'>Quên mật khẩu</span>
                         <p>Chưa có tài khoản? <span onClick={() => setCurState("Sign Up")}>Đăng ký ngay</span> </p>

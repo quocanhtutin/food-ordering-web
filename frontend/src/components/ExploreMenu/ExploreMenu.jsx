@@ -26,8 +26,8 @@ const ExploreMenu = ({ category, setCategory }) => {
 
     return (
         <div className='explore-menu' id='explore-menu'>
-            <h1>Explore Menu</h1>
-            <p className='explore-menu-text'>Choose from a variety of categories</p>
+            <h1>Danh mục món ăn</h1>
+            <p className='explore-menu-text'>Có thể bạn sẽ thích</p>
             <div className="explore-menu-list">
                 {menu_list.map((item, index) => (
                     <div

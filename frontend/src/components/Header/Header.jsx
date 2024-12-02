@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-const Header = () => {
+const Header = ({ scrollToExploreMenu }) => {
     return (
         <div className='header'>
             <div className="header-contents">
