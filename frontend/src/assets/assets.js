@@ -1,5 +1,6 @@
 import basket_icon from './basket_icon1.png'
-import logo from './logo.png'
+import logo from './A1-5-Food.png'
+import empty_cart from './empty_cart.png'
 import header_img from './header_img.png'
 import search_icon from './search_icon.png'
 import menu_1 from './menu_1.png'
@@ -79,7 +80,8 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    empty_cart
 }
 
 export const menu_list = [
