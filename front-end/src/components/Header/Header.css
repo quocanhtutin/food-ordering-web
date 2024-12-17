@@ -1,9 +1,9 @@
 .header{
-    height: 34.64vw;
+    height: 34.8vw;
     margin: 30px auto;
     background: url(/header_vietnamese_food.jpg) no-repeat;
     background-size: contain;
-    border-radius: 20px;
+    border-radius: 30px;
     position: relative;
 }
 
@@ -17,6 +17,7 @@
     bottom: 10%;
     left:6vw;
     animation: fadeIn 3s;
+    user-select: none;
 }
 
 .header-contents h2 {
@@ -35,9 +36,17 @@
     border: none;
     color: #60402b;
     font-weight: 500;
-    padding: 0.7vw 1.2vw;
+    font-size: 16px;
+    padding: 10px 30px;
     background-color: white;
     font-size: max(1vm, 13px);
     border-radius: 50px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.header button:hover{
+    background: #60402b;
+    color: white;
 }
 

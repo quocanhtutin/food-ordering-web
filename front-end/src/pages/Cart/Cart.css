@@ -25,6 +25,48 @@
 .cart-items-item .cross{
     cursor: pointer;
 }
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; 
+    border: 1px solid #e2e2e2;
+    width: fit-content; 
+    overflow: hidden; 
+}
+
+.quantity .remove,
+.quantity .add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Chiều rộng và cao của nút */
+    height: 30px;
+    font-size: 20px; /* Kích thước dấu */
+    cursor: pointer;
+    user-select: none; /* Ngăn chọn văn bản */
+    border: none;
+    background-color: #f5f5f5; /* Màu nền nhạt */
+    transition: background-color 0.2s; /* Hiệu ứng hover */
+}
+
+.quantity .remove:hover,
+.quantity .add:hover {
+    background-color: #e2e2e2;
+}
+
+.quantity p {
+    width: 30px; 
+    height: 30px;
+    text-align: center;
+    line-height: 30px; /* Căn giữa nội dung */
+    border: none; /* Xóa đường viền mặc định */
+    outline: none;
+    font-size: 18px;
+    background-color: #fff; /* Nền trắng */
+}
+
+
 .cart-bottom{
     margin-top: 80px;
     display: flex;

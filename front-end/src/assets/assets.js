@@ -1,4 +1,4 @@
-import basket_icon from './basket_icon.png'
+import basket_icon from './basket_icon1.png'
 import logo from './logo.png'
 import header_img from './header_img.png'
 import search_icon from './search_icon.png'

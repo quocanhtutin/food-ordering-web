@@ -52,24 +52,24 @@ const LoginPopup = ({ setShowLogin }) => {
         <div className='login-popup'>
             <form onSubmit={onLogin} action="" className="login-popup-container">
                 <div className="login-popup-title">
-                    <h2>{currState}</h2>
+                    <h2>{currState==="Login"?"Đăng nhập":"Đăng ký"}</h2>
                     <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="" />
                 </div>
                 <div className="login-popup-inputs">
-                    {currState === "Login" ? <></> : <input name='name' onChange={onChangeHandler} value={data.name} type="text" placeholder='Your name' required />}
-                    <input name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Your email' required />
-                    <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Password' required />
+                    {currState === "Login" ? <></> : <input name='name' onChange={onChangeHandler} value={data.name} type="text" placeholder='Tên' required />}
+                    <input name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Email' required />
+                    <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Mật khẩu' required />
                 </div>
-                <button type='submit'>{currState === 'Sign up' ? 'Create account' : 'Login'}</button>
-                <div className="login-popup-condition">
+                <button type='submit'>{currState === 'Sign up' ? 'Tạo tài khoản' : 'Đăng nhập'}</button>
+                {/* <div className="login-popup-condition">
                     <input type='checkbox' required />
                     <p>By continuing, I agree to the terms of use & privacy policy.</p>
-                </div>
+                </div> */}
                 {currState === "Login"
                     ?
-                    <p>Create a new Account? <span onClick={() => setCurrState("Sign up")}>Click here</span></p>
+                    <p>Chưa có tài khoản? <span onClick={() => setCurrState("Sign up")}>Đăng ký ngay</span></p>
                     :
-                    <p>Already have an account?<span onClick={() => setCurrState("Login")}>Login here</span></p>
+                    <p>Đã có tài khoản?<span onClick={() => setCurrState("Login")}>Đăng nhập ngay</span></p>
                 }
             </form>
         </div>

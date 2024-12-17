@@ -29,7 +29,7 @@
     width: 16px;
     cursor: pointer;
 }
-.login-popup-inputs{
+/* .login-popup-inputs{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -39,7 +39,30 @@
     border: 1px solid #c9c9c9;
     padding: 10px;
     border-radius: 4px;
-}
+} */
+
+.login-popup-inputs input {
+    padding: 12px 40px; 
+    margin-bottom: 15px; 
+    border-radius: 10px; 
+    box-shadow:  rgba(50, 50, 93, 0.25) 0px 1px 1px -2px,rgba(0, 0, 0, 0.3) 0px 1px 7px -2px; 
+    background-color: white; 
+    color: #666; 
+    position: relative;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .login-popup-inputs input:focus {
+    outline: none; 
+    box-shadow:rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  
+  .login-popup-inputs input::placeholder {
+    color: #b3bac2; 
+  }
+
 .login-popup-container button{
     border:none;
     padding: 10px;
@@ -49,7 +72,13 @@
     font-size: 15px;
     cursor: pointer;
 }
-.login-popup-condition{
+
+.login-popup-container button:hover{
+    background-color: #4d3525;
+    transition: 0.3s;
+
+}
+/* .login-popup-condition{
     display: flex;
     align-items: start;
     gap: 8px;
@@ -57,9 +86,40 @@
 }
 .login-popup-condition input{
     margin-top: 5px;
-}
+} */
 .login-popup p span {
     color: #60402b;
     font-weight: 500;
     cursor: pointer;
 }
+.login-popup p span:hover {
+    text-decoration: underline;
+  }
+
+.login-popup-inputs .email {
+    background-image: url('../../assets/email1.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
+  
+  .login-popup-inputs .email:focus {
+    background-image: url('../../assets/email2.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
+  
+  .password {
+    background-image: url('../../assets/pass1.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
+  
+  .password:focus{
+    background-image: url('../../assets/pass2.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
