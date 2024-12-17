@@ -13,6 +13,7 @@ const List = ({ url }) => {
 
         if (response.data.success) {
             setList(response.data.data);
+            console.log("list", list)
         }
         else {
             toast.error("Error")
