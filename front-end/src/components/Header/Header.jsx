@@ -7,7 +7,7 @@ const Header = () => {
             <div className="header-contents">
                 <h2>Gọi món ngon ngay tại đây!</h2>
                 <p>Lựa chọn với thực đơn đa dạng từ Bắc Trung Nam</p>
-                <button>Mở thực đơn</button>
+                <a href='#explore-menu'><button>Mở thực đơn</button></a>
             </div>
         </div>
     )

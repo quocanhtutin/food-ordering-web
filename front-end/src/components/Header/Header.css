@@ -39,5 +39,6 @@
     background-color: white;
     font-size: max(1vm, 13px);
     border-radius: 50px;
+    cursor: pointer;
 }
 
