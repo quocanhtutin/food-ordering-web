@@ -5,8 +5,11 @@ import { assets } from '../../assets/assets'
 const Navbar = () => {
     return (
         <div className='navbar'>
-            <img className='logo' src={assets.logo} alt="" />
-            <img className='profile' src={assets.profile_image} alt="" />
+            <div className='navbar-left'>
+                <h1>Nhom11</h1>
+                <p>Quản lý cửa hàng</p>
+            </div>
+            {/* <img className='profile' src={assets.profile_image} alt="" /> */}
         </div>
     )
 }

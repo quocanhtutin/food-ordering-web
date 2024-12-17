@@ -10,3 +10,11 @@
 .navbar .profile{
     width: 40px;
 }
+.navbar h1{
+    font-size: 30px;
+    color: #60402b;
+    font-family: "Arial Black" ;
+}
+.navbar-left{
+    margin-bottom: 10px;
+}
