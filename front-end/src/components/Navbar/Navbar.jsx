@@ -57,7 +57,7 @@ const Navbar = ({ setShowLogin }) => {
 
             </div> */}
 
-            {location.pathname !== '/cart'
+            {location.pathname !== '/cart'&& location.pathname !== '/payment'
             &&
             <div className="search-bar-container">
                 <div className="search-bar">
@@ -91,7 +91,7 @@ const Navbar = ({ setShowLogin }) => {
                 )}
             </div>}
             <div className="navbar-right">
-                {location.pathname !== '/cart' && (
+                {location.pathname !== '/cart'&& location.pathname !== '/payment'&& (
                     <div className="navbar-basket-icon" onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}>
                         <Link to="/cart">

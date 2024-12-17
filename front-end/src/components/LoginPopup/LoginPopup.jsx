@@ -57,8 +57,8 @@ const LoginPopup = ({ setShowLogin }) => {
                 </div>
                 <div className="login-popup-inputs">
                     {currState === "Login" ? <></> : <input name='name' onChange={onChangeHandler} value={data.name} type="text" placeholder='Tên' required />}
-                    <input name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Email' required />
-                    <input name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Mật khẩu' required />
+                    <input className='email' name='email' onChange={onChangeHandler} value={data.email} type="email" placeholder='Email' required />
+                    <input className='password' name='password' onChange={onChangeHandler} value={data.password} type="password" placeholder='Mật khẩu' required />
                 </div>
                 <button type='submit'>{currState === 'Sign up' ? 'Tạo tài khoản' : 'Đăng nhập'}</button>
                 {/* <div className="login-popup-condition">

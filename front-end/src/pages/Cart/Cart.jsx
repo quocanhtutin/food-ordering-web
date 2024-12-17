@@ -61,7 +61,7 @@ const Cart = () => {
                         <hr />
                         <div className="cart-total-detail">
                             <b>Tổng</b>
-                            <b>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}đ</b>
+                            <b>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 20000}đ</b>
                         </div>
                     </div>
                     <button onClick={() => navigate('/order')}>Tiến hành thanh toán</button>
