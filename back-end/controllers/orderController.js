@@ -4,6 +4,72 @@ import stripe from "stripe"
 
 // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
+// const checkTransactions = async (req, res) => {
+//     const scriptUrl = 'http://localhost:4000/api/proxy';
+
+//     try {
+
+//         const response = await fetch(scriptUrl);
+
+//         const data = await response.json();
+//         const transactions = data.data;
+//         console.log(transactions);
+
+//         const pendingOrders = await orderModel.find({ payment: false });
+
+//         for (let transaction of transactions) {
+//             const matchingOrder = pendingOrders.find(order => transaction["Mô tả"] && transaction["Mô tả"].includes(order.code));
+
+//             if (matchingOrder && transaction["Giá trị"] <= matchingOrder.amount) {
+//                 await orderModel.findByIdAndUpdate(matchingOrder._id, { payment: true, status: "Paid" });
+//                 console.log(`Thanh toán thành công cho đơn hàng: ${matchingOrder.code}`);
+//             }
+//         }
+
+//         res.json({ success: true, message: "Kiểm tra giao dịch thành công" });
+//     } catch (error) {
+//         console.error("Lỗi kiểm tra giao dịch:", error);
+//         // res.status(500).json({ success: false, message: "Không thể kiểm tra giao dịch" });
+//     }
+// };
+
+const checkTransactions = async (req, res = null) => {
+    const scriptUrl = 'http://localhost:4000/api/proxy';
+
+    try {
+        const response = await fetch(scriptUrl);
+
+
+        const data = await response.json();
+        const transactions = data.data;
+
+        // console.log('Giao dịch:', transactions);
+
+        const pendingOrders = await orderModel.find({ payment: false });
+
+        for (let transaction of transactions) {
+            const matchingOrder = pendingOrders.find(order =>
+                transaction["Mô tả"] && transaction["Mô tả"].includes(order.code)
+            );
+
+            if (matchingOrder && transaction["Giá trị"] >= matchingOrder.amount) {
+                await orderModel.findByIdAndUpdate(matchingOrder._id, { payment: true, status: "Paid" });
+                console.log(`Thanh toán thành công cho đơn hàng: ${matchingOrder.code}`);
+            }
+        }
+
+        if (res) {
+            res.json({ success: true, message: "Kiểm tra giao dịch thành công" });
+        }
+    } catch (error) {
+        console.error("Lỗi kiểm tra giao dịch:", error);
+        if (res) {
+            res.status(500).json({ success: false, message: "Không thể kiểm tra giao dịch" });
+        }
+    }
+};
+
+
 
 
 //placing user order for frontend
@@ -12,12 +78,16 @@ const placeOrder = async (req, res) => {
     const frontend_url = `http://localhost:5174`;
 
     try {
+
+        const orderCount = await orderModel.countDocuments();
+        const orderCode = `ORDER${String(orderCount + 1).padStart(3, '0')}`;
         const newOrder = new orderModel({
             userId: req.body.userId,
             items: req.body.items,
             amount: req.body.amount,
-            address: req.body.address
-        })
+            address: req.body.address,
+            code: orderCode
+        });
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
@@ -51,7 +121,7 @@ const placeOrder = async (req, res) => {
         // })
 
         //res.json({ success: true, session_url: session.url })
-        res.json({ success: true })
+        res.json({ success: true, orderCode });
 
     } catch (error) {
         console.log(error);
@@ -95,9 +165,10 @@ const listOrders = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: "Error" })
-
     }
 }
+
+
 
 // api for updating order status
 const updateStatus = async (req, res) => {
@@ -107,8 +178,7 @@ const updateStatus = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: "Error" })
-
     }
 }
 
-export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus }
+export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus, checkTransactions }
