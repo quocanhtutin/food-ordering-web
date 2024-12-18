@@ -15,7 +15,7 @@ const Orders = ({ url }) => {
 
 
         if (response.data.success) {
-            setOrders(response.data.data);
+            setOrders([...response.data.data].reverse());
             // setOrders(orders => [...orders, ...response.data.data])
             console.log(response.data.data)
             console.log("orders", orders)
@@ -60,19 +60,19 @@ const Orders = ({ url }) => {
                                         }
                                     })}
                                 </p>
-                                <p className='order-item-name'>{order.address.firstName + " " + order.address.lastName}</p>
+                                <p className='order-item-name'>{order.address.name}</p>
                                 <div className="order-item-address">
-                                    <p>{order.address.street + ", "}</p>
-                                    <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
+                                    <p>{order.address.street}</p>
                                 </div>
                                 <p className='order-item-phone'>{order.address.phone}</p>
                             </div>
                             <p>Items : {order.items.length}</p>
                             <p>{order.amount}đ</p>
                             <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
-                                <option value="Food Processing">Food Processing</option>
-                                <option value="Out for Delivery">Out for Delivery</option>
-                                <option value="Delivered">Delivered</option>
+                                <option value="Đang chuẩn bị">Đang chuẩn bị</option>
+                                <option value="Đang vận chuyển">Đang vận chuyển</option>
+                                <option value="Hoàn tất">Hoàn tất</option>
+                                <option value="Hủy đơn">Hủy đơn</option>
                             </select>
                         </div>
                     )

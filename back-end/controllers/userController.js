@@ -2,6 +2,7 @@ import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken"  //create authenication
 import bcrypt from "bcrypt"
 import validator from "validator"
+import orderModel from "../models/oderModel.js";
 
 
 //login user
@@ -21,7 +22,7 @@ const loginUser = async (req, res) => {
         }
 
         const token = createToken(user._id);
-        res.json({ success: true, token })
+        res.json({ success: true, token, userName: user.name, userEmail: user.email })
 
     } catch (error) {
         console.log(error);
@@ -73,4 +74,25 @@ const registerUser = async (req, res) => {
     }
 }
 
-export { loginUser, registerUser }
+const listUser = async (req, res) => {
+    try {
+        const users = await userModel.find({})
+        res.json({ success: true, data: users })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: "Error" })
+    }
+}
+
+const deleteUser = async (req, res) => {
+    try {
+        await userModel.findByIdAndDelete(req.body.id)
+        await orderModel.deleteMany({ userId: req.body.id })
+        res.json({ success: true, message: "User removed" })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error" })
+    }
+}
+
+export { loginUser, registerUser, listUser, deleteUser }

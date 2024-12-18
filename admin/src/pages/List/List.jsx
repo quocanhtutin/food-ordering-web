@@ -25,10 +25,10 @@ const List = ({ url }) => {
             const response = await axios.post(`${url}/api/food/remove`, { id: foodId });
             await fetchList();
             if (response.data.success) {
-                toast.success(response.data.message)
+                toast.success(`Xóa món thành công`)
             }
             else {
-                toast.error('Error')
+                toast.error('Lỗi')
             }
         }
 
@@ -40,7 +40,7 @@ const List = ({ url }) => {
 
     return (
         <div className='list add flex-col'>
-            <p>Danh sách món ăn</p>
+            <h3>Danh sách món ăn</h3>
             <div className="list-table">
                 <div className="list-table-format title">
                     <b>Hình ảnh</b>

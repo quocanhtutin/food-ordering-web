@@ -7,8 +7,8 @@ const Footer = () => {
         <div className='footer' id='footer'>
             <div className="footer-content">
                 <div className="footer-content-left">
-                    <img src={assets.logo} alt="" />
-                    <p>skdjfkhwsdjgnvhhhhhhhhhhhhhh hh hhhh hhh hhhhhh hhhhhh hhhhhhhhhhhhhhh</p>
+                    <h1>Nhom11</h1>
+                    <p>Theo dõi cửa hàng trên các nền tảng khác!</p>
                     <div className="footer-social-icons">
                         <img src={assets.facebook_icon} alt="" />
                         <img src={assets.twitter_icon} alt="" />
@@ -16,24 +16,23 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footer-content-center">
-                    <h2>COMPANY</h2>
+                    <h2>Thông tin</h2>
                     <ul>
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>Delivery</li>
-                        <li>Privacy policy</li>
+                        <li>Địa chỉ:</li>
+                        <li>Chi nhánh:</li>
+                        <li>Chính sách thành viên:</li>
                     </ul>
                 </div>
                 <div className="footer-content-right">
-                    <h2>GET IN TOUCH</h2>
+                    <h2>Liên hệ</h2>
                     <ul>
-                        <li>+123-444-444-444</li>
+                        <li>0987654321</li>
                         <li>contact@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <hr />
-            <p className='footer-copy-right'>Copyright 2024 fknvsfivsnvjfs vjfsnvjnfsjv</p>
+            <p className='footer-copy-right'>Chúc bạn ngon miệng !</p>
         </div>
     )
 }
