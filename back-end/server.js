@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
     res.send("API Working")
 });
 app.get('/api/proxy', async (req, res) => {
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbybVPprH89jYkZ5r4YNgMHJL4rFluK9P4Ua7VvS6BWIGBRV_4L8EX-tIFo5ztSrcGtt/exec';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxTSaN2QBUKLparKXAP49b5TNpFQUv5IlJjmfqnWCx9sqsJx6Jt4WaJDOdb6Jjk0Zrh/exec';
 
     try {
         const response = await fetch(scriptUrl); // Gọi đến Google Apps Script

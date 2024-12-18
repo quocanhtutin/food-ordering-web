@@ -14,7 +14,6 @@ const ListUsers = ({ url }) => {
         if (response.data.success) {
             setData(response.data.data)
             console.log(response.data.data);
-
         }
         else {
             toast.error("Lỗi lấy danh sách tài khoản thành viênviên")

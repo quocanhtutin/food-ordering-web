@@ -23,6 +23,10 @@ const Sidebar = () => {
                     <img src={assets.profile_icon} alt="" />
                     <p>Danh sách tài khoản thành viên</p>
                 </NavLink>
+                <NavLink to='/TransHis' className="sidebar-option">
+                    <img src={assets.history_icon} alt="" />
+                    <p>Lịch sử nhận tiền</p>
+                </NavLink>
             </div>
         </div>
     )

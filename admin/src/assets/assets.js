@@ -13,7 +13,8 @@ export const assets = {
     profile_image,
     upload_area,
     parcel_icon,
-    profile_icon
+    profile_icon,
+    history_icon: 'https://img.icons8.com/ios/452/time-machine.png'
 }
 
 export const url = 'http://localhost:4000'
