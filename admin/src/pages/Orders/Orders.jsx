@@ -15,7 +15,7 @@ const Orders = ({ url }) => {
 
 
         if (response.data.success) {
-            setOrders(response.data.data);
+            setOrders([...response.data.data].reverse());
             // setOrders(orders => [...orders, ...response.data.data])
             console.log(response.data.data)
             console.log("orders", orders)
@@ -72,6 +72,7 @@ const Orders = ({ url }) => {
                                 <option value="Đang chuẩn bị">Đang chuẩn bị</option>
                                 <option value="Đang vận chuyển">Đang vận chuyển</option>
                                 <option value="Hoàn tất">Hoàn tất</option>
+                                <option value="Hủy đơn">Hủy đơn</option>
                             </select>
                         </div>
                     )

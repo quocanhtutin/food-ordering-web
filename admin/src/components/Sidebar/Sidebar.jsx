@@ -19,6 +19,10 @@ const Sidebar = () => {
                     <img src={assets.order_icon} alt="" />
                     <p>Danh sách đặt hàng</p>
                 </NavLink>
+                <NavLink to='/listUsers' className="sidebar-option">
+                    <img src={assets.profile_icon} alt="" />
+                    <p>Danh sách tài khoản thành viên</p>
+                </NavLink>
             </div>
         </div>
     )

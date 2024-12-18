@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom'
 
 const PlaceOrder = () => {
 
-    const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext)
+    const { getTotalCartAmount, token, food_list, cartItems, url, userName, userEmail } = useContext(StoreContext)
 
     const [data, setData] = useState({
-        name: "",
-        email: "",
+        name: userName,
+        email: userEmail,
         street: "",
         phone: ""
     })
