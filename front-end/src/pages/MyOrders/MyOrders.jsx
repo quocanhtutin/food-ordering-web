@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import './MyOrders.css'
 import { StoreContext } from '../../context/StoreContext';
 import { assets } from '../../assets/assets';
+import { useEffect } from 'react';
+import axios from 'axios'
 
 const MyOrders = () => {
 
@@ -9,20 +11,21 @@ const MyOrders = () => {
     const [data, setData] = useState([]);
 
     const fetchOrders = async () => {
-        const response = await axios.post(url + "/api/order/userorders", {}, { headers: { token } });
+        const response = await axios.post(url + "/api/order/userOrders", {}, { headers: { token } });
         setData(response.data.data)
+        console.log(response.data.data)
     }
 
     useEffect(() => {
         if (token) {
             fetchOrders();
         }
-    }, [token])
+    }, [])
 
 
     return (
         <div className='my-orders'>
-            <h2>My orders</h2>
+            <h2>Đơn hàng</h2>
             <div className="container">
                 {data.map((order, index) => {
                     return (
@@ -36,10 +39,10 @@ const MyOrders = () => {
                                     return item.name + " x " + item.quantity + ", "
                                 }
                             })}</p>
-                            <p>${order.amount}.00</p>
-                            <p>Items: {order.items.length}</p>
-                            <p><span>&#25cf;</span> <b>{order.status}</b></p>
-                            <button onClick={fetchOrders}>Track Order</button>
+                            <p>{order.amount} đ</p>
+                            <p>Số lượng món: {order.items.length}</p>
+                            <p>Trạng thái: <b>{order.status}</b></p>
+                            <button onClick={fetchOrders}>Kiểm tra trạng thái</button>
                         </div>
                     )
                 })}
