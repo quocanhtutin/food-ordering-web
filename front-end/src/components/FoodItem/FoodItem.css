@@ -52,6 +52,12 @@
     right: 15px;
     cursor: pointer;
     border-radius: 50%;
+    display: none;
+    animation: fadeIn 0.3s;
+}
+
+.food-item:hover .food-item-image-container .add {
+    display: block; /* Hiển thị nút "add" khi hover vào .food-item */
 }
 
 .food-item-counter{

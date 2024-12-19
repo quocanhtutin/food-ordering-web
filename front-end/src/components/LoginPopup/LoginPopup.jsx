@@ -37,19 +37,14 @@ const LoginPopup = ({ setShowLogin }) => {
             setToken(response.data.token);
             setUserName(response.data.userName);
             setUserEmail(response.data.userEmail);
-            console.log(response.data.userName, response.data.userEmail)
             localStorage.setItem("token", response.data.token);
-            setShowLogin(false)
+            setShowLogin(false);
+            
         }
         else {
             alert(response.data.message)
         }
-
     }
-
-
-
-
 
     return (
         <div className='login-popup'>
