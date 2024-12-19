@@ -9,10 +9,10 @@ import { assets } from '../../assets/assets.js'
 const Orders = ({ url }) => {
 
     const [orders, setOrders] = useState([]);
+    const [selectedStatus, setSelectedStatus] = useState("Tất cả");
 
     const fetchAllOrders = async () => {
         const response = await axios.get(`${url}/api/order/list`);
-
 
         if (response.data.success) {
             setOrders([...response.data.data].reverse());
@@ -36,15 +36,40 @@ const Orders = ({ url }) => {
         }
     }
 
+    const handleFilterChange = (event) => {
+        setSelectedStatus(event.target.value);
+    };
+
     useEffect(() => {
         fetchAllOrders();
     }, [])
 
+    const filteredOrders = orders.filter(order => {
+        if (selectedStatus === "Tất cả") return true;
+        else if (selectedStatus === "Đã hoàn thành")
+            return order.status === "Hoàn tất";
+        else if (selectedStatus === "Đã huỷ")
+            return order.status === "Hủy đơn";
+        else
+            return order.status !== "Hoàn tất" && order.status !== "Hủy đơn";
+
+    });
+
     return (
         <div className='order add'>
-            <h3>Danh sách đơn hàng</h3>
+            <div className="order-header">
+                <h3>Danh sách đơn hàng</h3>
+                <select value={selectedStatus} onChange={handleFilterChange}>
+                    <option value="Tất cả">Tất cả</option>
+                    <option value="Chưa hoàn thành">Chưa hoàn thành</option>
+                    <option value="Đã hoàn thành">Đã hoàn thành</option>
+                    <option value="Đã huỷ">Đã huỷ</option>
+                </select>
+            </div>
+
+
             <div className="order-list">
-                {orders.map((order, index) => {
+                {filteredOrders.map((order, index) => {
                     return (
                         <div key={index} className='order-item'>
                             <img src={assets.parcel_icon} alt="" />

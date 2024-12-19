@@ -32,7 +32,7 @@ const Navbar = ({ setShowLogin }) => {
 
     return (
         <div className='navbar'>
-            <Link to='/'><h1>Nhom11</h1></Link>
+            <Link to='/'><h1>Nhóm11</h1></Link>
             {/* <ul className="navbar-menu">
                 <Link to='/' onClick={() => setMenu("home")} className={(menu === "home") ? "active" : ""}>Trang chủ</Link>
                 <a href='#explore-menu' onClick={() => setMenu("menu")} className={(menu === "menu") ? "active" : ""}>Thực đơn</a>

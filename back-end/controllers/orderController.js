@@ -53,7 +53,7 @@ const checkTransactions = async (req, res = null) => {
             );
 
             if (matchingOrder && transaction["Giá trị"] >= matchingOrder.amount) {
-                await orderModel.findByIdAndUpdate(matchingOrder._id, { payment: true, status: "Paid" });
+                await orderModel.findByIdAndUpdate(matchingOrder._id, { payment: true, status: "Đang chuẩn bị" });
                 console.log(`Thanh toán thành công cho đơn hàng: ${matchingOrder.code}`);
             }
         }
