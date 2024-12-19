@@ -14,13 +14,14 @@ const Payment = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const orderCode = queryParams.get('orderCode');
+    const amount = queryParams.get('amount');
 
 
     const bankContent = {
         BANK_ID: 'MB',
         ACCOUNT_NO: '777211004',
         TEMPLATE: 'compact',
-        AMOUNT: getTotalCartAmount()===0?0:(getTotalCartAmount()+20000),
+        AMOUNT: amount,
         DESCRIPTION: orderCode
     }
 
@@ -39,7 +40,7 @@ const Payment = () => {
                 </p>
                 <p>Sử dụng App Banking để quét mã phía trên.</p>
                 <p>Hoặc chuyển khoản với thông tin sau</p>
-                <p>Số tiền: <strong>{getTotalCartAmount() + 20000} VNĐ</strong></p>
+                <p>Số tiền: <strong>{amount} VNĐ</strong></p>
                 <p>Ngân hàng: <strong>MB Bank</strong></p>
                 <p>
                     Số tài khoản: <strong>777211004  </strong>

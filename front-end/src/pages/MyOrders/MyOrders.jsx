@@ -4,6 +4,7 @@ import { StoreContext } from '../../context/StoreContext';
 import { assets } from '../../assets/assets';
 import { useEffect } from 'react';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const MyOrders = () => {
 
@@ -20,6 +21,14 @@ const MyOrders = () => {
     const handleFilterChange = (event) => {
         setSelectedStatus(event.target.value);
     };
+    const navigate = useNavigate();
+
+    const payHandler = (orderCode,amount) => {
+        console.log(orderCode);
+        navigate(`/payment?orderCode=${orderCode}&amount=${amount}`);
+    }
+
+        
 
     useEffect(() => {
         if (token) {
@@ -41,6 +50,8 @@ const MyOrders = () => {
             return order.status === "Đã huỷ";
         }
     });
+
+
 
 
     return (
@@ -74,7 +85,7 @@ const MyOrders = () => {
                             <p>Trạng thái: <b>{order.status}</b></p>
                             {order.status !== "Chưa thanh toán"
                                 ? <button onClick={fetchOrders}>Kiểm tra trạng thái</button>
-                                : <button onClick={fetchOrders}>Thanh toán ngay</button>
+                                : <button onClick={() => payHandler(order.code,order.amount)}>Thanh toán ngay</button>
                             }
                         </div>
                     )

@@ -94,6 +94,7 @@ const Orders = ({ url }) => {
                             <p>Items : {order.items.length}</p>
                             <p>{order.amount}đ</p>
                             <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
+                                <option value="Chưa thanh toán">Chưa thanh toán</option>
                                 <option value="Đang chuẩn bị">Đang chuẩn bị</option>
                                 <option value="Đang vận chuyển">Đang vận chuyển</option>
                                 <option value="Hoàn tất">Hoàn tất</option>

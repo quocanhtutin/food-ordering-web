@@ -40,7 +40,7 @@ const PlaceOrder = () => {
         console.log(response.data);
         if (response.data.success) {
             const { orderCode } = response.data; 
-            navigate(`/payment?orderCode=${orderCode}`);
+            navigate(`/payment?orderCode=${orderCode}&amount=${getTotalCartAmount() + 20000}`);
         }
         else {
             alert("Error")
