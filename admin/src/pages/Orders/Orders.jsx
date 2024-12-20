@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useEffect } from 'react'
-import { assets } from '../../assets/assets.js'
+import OrderItem from './OrderItem.jsx'
 
 const Orders = ({ url }) => {
 
@@ -29,7 +29,7 @@ const Orders = ({ url }) => {
     const statusHandler = async (event, orderId) => {
         const response = await axios.post(url + '/api/order/status', {
             orderId,
-            status: event.target.value
+            status: event
         })
         if (response.data.success) {
             await fetchAllOrders()
@@ -71,35 +71,41 @@ const Orders = ({ url }) => {
             <div className="order-list">
                 {filteredOrders.map((order, index) => {
                     return (
-                        <div key={index} className='order-item'>
-                            <img src={assets.parcel_icon} alt="" />
-                            <div>
-                                <p className='order-item-food'>
-                                    {order.items.map((item, index) => {
-                                        // console.log(order)
-                                        if (index === order.items.length - 1) {
-                                            return item.name + " x " + item.quantity
-                                        }
-                                        else {
-                                            return item.name + " x " + item.quantity + ', '
-                                        }
-                                    })}
-                                </p>
-                                <p className='order-item-name'>{order.address.name}</p>
-                                <div className="order-item-address">
-                                    <p>{order.address.street}</p>
+                        <div className='order-item-container'>
+                            <div key={index} className='order-item'>
+                                {/* <img src={assets.parcel_icon} alt="" /> */}
+                                <div className='order-item-food'>
+                                    <div className='order-item-header'>
+                                        <p>Đơn hàng: <strong>{order.code}</strong></p>
+                                        <p>Số tiền: <strong>{order.amount}đ</strong></p>
+                                        <p>Trạng thái: <strong>{order.status}</strong></p>
+                                    </div>
+                                    {order.items.map((item, index) => (
+                                        <OrderItem key={index} name={item.name} image={item.image} quantity={item.quantity} />
+                                    ))}
                                 </div>
-                                <p className='order-item-phone'>{order.address.phone}</p>
-                            </div>
-                            <p>Items : {order.items.length}</p>
-                            <p>{order.amount}đ</p>
-                            <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
+                                <div className='order-item-address'>
+                                    <p className='order-item-address-header'>Thông tin khách hàng</p>
+                                    <p className='order-item-name'>Tên: <strong>{order.address.name}</strong></p>
+                                    <div className="order-item-address">
+                                        <p>Địa chỉ: <strong>{order.address.street}</strong></p>
+                                    </div>
+                                    <p className='order-item-phone'>Số điện thoại: <strong>{order.address.phone}</strong></p>
+                                </div>
+
+
+                                {/* <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
                                 <option value="Chưa thanh toán">Chưa thanh toán</option>
                                 <option value="Đang chuẩn bị">Đang chuẩn bị</option>
                                 <option value="Đang vận chuyển">Đang vận chuyển</option>
                                 <option value="Hoàn tất">Hoàn tất</option>
                                 <option value="Hủy đơn">Hủy đơn</option>
-                            </select>
+                            </select> */}
+                            </div>
+                            <div className='order-item-button'>
+                                {order.status === "Đang chuẩn bị"
+                                && <button onClick={() => statusHandler("Đang vận chuyển", order._id)}>Giao hàng</button>}
+                            </div>
                         </div>
                     )
                 })}

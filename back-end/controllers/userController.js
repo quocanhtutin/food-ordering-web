@@ -2,7 +2,7 @@ import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken"  //create authenication
 import bcrypt from "bcrypt"
 import validator from "validator"
-import orderModel from "../models/oderModel.js";
+import orderModel from "../models/orderModel.js";
 
 
 //login user

@@ -1,0 +1,35 @@
+.od-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.od-item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.od-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.od-item-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.od-item-quantity {
+    font-size: 14px;
+    color: #666;
+}
+.od-item-quantity strong {
+    font-size: 18px;
+    
+}

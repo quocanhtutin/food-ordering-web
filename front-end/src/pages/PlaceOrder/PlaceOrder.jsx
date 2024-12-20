@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const PlaceOrder = () => {
 
-    const { getTotalCartAmount, token, food_list, cartItems, url, userName, userEmail } = useContext(StoreContext)
+    const { getTotalCartAmount, token, food_list, cartItems, url, userName, userEmail,deleteAllCartItems } = useContext(StoreContext)
 
     const [data, setData] = useState({
         name: userName,
@@ -40,6 +40,7 @@ const PlaceOrder = () => {
         console.log(response.data);
         if (response.data.success) {
             const { orderCode } = response.data; 
+            deleteAllCartItems();
             navigate(`/payment?orderCode=${orderCode}&amount=${getTotalCartAmount() + 20000}`);
         }
         else {

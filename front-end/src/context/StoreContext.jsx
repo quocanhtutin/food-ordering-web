@@ -52,6 +52,13 @@ const StoreContextProvider = (props) => {
         setCartItems(response.data.cartData)
     }
 
+    const deleteAllCartItems = async () => {
+        setCartItems({})
+        if (token) {
+            await axios.post(url + "/api/cart/delete", {}, { headers: { token } })
+        }
+    }
+
     useEffect(() => {
         async function loadData() {
             await fetchFoodList()
@@ -77,7 +84,8 @@ const StoreContextProvider = (props) => {
         userName,
         setUserName,
         userEmail,
-        setUserEmail
+        setUserEmail,
+        deleteAllCartItems
     }
 
     return (
