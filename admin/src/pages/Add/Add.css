@@ -23,7 +23,11 @@
     display: flex;
     gap: 30px;
 }
-.add-category-price select, input{
+.add-category-price select{
+    max-width: 120px;
+    padding: 10px;
+}
+.add-category-price input{
     max-width: 120px;
     padding: 10px;
 }

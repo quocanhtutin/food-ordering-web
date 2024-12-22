@@ -17,7 +17,7 @@ const Navbar = ({ setShowLogin }) => {
     const [showSuggestion, setShowSuggestion] = useState(false);
     const { cartItems, food_list, addToCart } = useContext(StoreContext);
     const location = useLocation();
-    
+
 
     const logout = () => {
         localStorage.removeItem("token");
@@ -56,47 +56,46 @@ const Navbar = ({ setShowLogin }) => {
 
             </div> */}
 
-            {location.pathname !== '/cart'&& location.pathname !== '/payment'
-            &&
-            <div className="search-bar-container">
-                <div className="search-bar">
-                    <input
-                        type="text"
-                        placeholder="Hôm nay ăn gì?"
-                        onFocus={() => setShowSuggestion(true)}
-                        onBlur={() => setTimeout(() => setShowSuggestion(false), 200)}
-                        onChange={(e) => {
-                            if (e.target.value.length > 0) {
-                                setShowSuggestion(false);
-                            } else {
-                                setShowSuggestion(true);
-                            }
-                        }}
+            {location.pathname !== '/cart' && location.pathname !== '/payment'
+                &&
+                <div className="search-bar-container">
+                    <div className="search-bar">
+                        <input
+                            type="text"
+                            placeholder="Hôm nay ăn gì?"
+                            onFocus={() => setShowSuggestion(true)}
+                            onBlur={() => setTimeout(() => setShowSuggestion(false), 200)}
+                            onChange={(e) => {
+                                if (e.target.value.length > 0) {
+                                    setShowSuggestion(false);
+                                } else {
+                                    setShowSuggestion(true);
+                                }
+                            }}
 
-                    />
-                    <button>
-                        <img src={assets.search_icon} alt="search icon" />
-                    </button>
-                </div>
-                {showSuggestion && (
-                    <div className="suggestion-item"
-                        onClick={() => {
-                            const randomItem = food_list[Math.floor(Math.random() * food_list.length)];
-                            addToCart(randomItem._id);
-                            setShowSuggestion(false);
-                        }}>
-                        ăn gì cũng được
+                        />
+                        <button>
+                            <img src={assets.search_icon} alt="search icon" />
+                        </button>
                     </div>
-                )}
-            </div>}
+                    {showSuggestion && (
+                        <div className="suggestion-item"
+                            onClick={() => {
+                                const randomItem = food_list[Math.floor(Math.random() * food_list.length)];
+                                addToCart(randomItem._id);
+                                setShowSuggestion(false);
+                            }}>
+                            ăn gì cũng được
+                        </div>
+                    )}
+                </div>}
             <div className="navbar-right">
-                {location.pathname !== '/cart'&& location.pathname !== '/payment'&& (
+                {location.pathname !== '/cart' && location.pathname !== '/payment' && (
                     <div className="navbar-basket-icon" onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}>
                         <Link to="/cart">
-                            <img src={assets.basket_icon} alt="" />
-                            {/* {Object.keys(cartItems).length !== 0 && <div className="dot"></div>} */}
-                            <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
+                            {getTotalCartAmount() === 0 ? <img src={assets.basket_icon} alt="" />
+                                : <img src={assets.basket_icon_full} alt="" />}
                         </Link>
                         {isHovering && <CartPopup />}
                     </div>

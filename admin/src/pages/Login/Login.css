@@ -1,0 +1,112 @@
+.login{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    /* display: grid; */
+    margin-left: 130px;
+    margin-top: 100px;
+
+}
+.login-container{
+    place-self: center;
+    /* width: max(23vw,33px); */
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 15px;
+    font-size: 14px;
+    box-shadow:  rgba(50, 50, 93, 0.25) 0px 1px 1px -2px,rgba(0, 0, 0, 0.3) 0px 1px 7px -2px; 
+
+}
+.login-title{
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.login-inputs{
+    width: 100%;
+    position: relative;
+}
+
+
+.login-inputs input {
+    width: 100%; /* Đặt độ rộng full container */
+    padding: 12px 40px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 1px -2px, rgba(0, 0, 0, 0.3) 0px 1px 7px -2px;
+    background-color: white;
+    color: #666;
+    position: relative;
+    border: none;
+    font-size: 16px;
+    display: grid;
+}
+
+  
+  .login-inputs input:focus {
+    outline: none; 
+    box-shadow:rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  
+  .login-inputs input::placeholder {
+    color: #b3bac2; 
+  }
+
+.login-container button{
+    border:none;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: #60402b;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-container button:hover{
+    background-color: #4d3525;
+    transition: 0.3s;
+
+}
+/* .login-condition{
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-top: -15px;
+}
+.login-condition input{
+    margin-top: 5px;
+} */
+
+
+.login-inputs .email {
+    background-image: url('../../assets/email1.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
+  
+  .login-inputs .email:focus {
+    background-image: url('../../assets/email2.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
+  
+  .password {
+    background-image: url('../../assets/pass1.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
+  
+  .password:focus{
+    background-image: url('../../assets/pass2.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px;
+  }
