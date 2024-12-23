@@ -4,9 +4,12 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const TransHis = ({ url }) => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true); // Trạng thái tải dữ liệu
-    const [error, setError] = useState(null); // Lưu trữ lỗi nếu có
+    const [originalData, setOriginalData] = useState([]); // Dữ liệu gốc
+    const [filteredData, setFilteredData] = useState([]); // Dữ liệu đã lọc
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     const fetchAllTransHis = async () => {
         try {
@@ -16,18 +19,41 @@ const TransHis = ({ url }) => {
                 throw new Error(response.data.message || "Lỗi không xác định");
             }
 
-            setData(response.data.data);
+            // Sắp xếp giao dịch mới nhất trước
+            const sortedData = response.data.data.sort(
+                (a, b) => new Date(b["Ngày diễn ra"]) - new Date(a["Ngày diễn ra"])
+            );
+
+            setOriginalData(sortedData);
+            setFilteredData(sortedData);
         } catch (error) {
             setError(error.message);
             toast.error("Lỗi khi lấy danh sách giao dịch: " + error.message);
         } finally {
-            setLoading(false); 
+            setLoading(false);
         }
     };
 
     useEffect(() => {
         fetchAllTransHis();
-    }, [url]); 
+    }, [url]);
+
+    const handleFilter = () => {
+        if (!startDate || !endDate) {
+            toast.warning("Vui lòng chọn cả hai ngày bắt đầu và kết thúc!");
+            return;
+        }
+
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        const filtered = originalData.filter(transaction => {
+            const transactionDate = new Date(transaction["Ngày diễn ra"]);
+            return transactionDate >= start && transactionDate <= end;
+        });
+
+        setFilteredData(filtered);
+    };
 
     if (loading) {
         return <div>Đang tải dữ liệu...</div>;
@@ -39,7 +65,20 @@ const TransHis = ({ url }) => {
 
     return (
         <div className='transhis add flex-col'>
-            <h3>Lịch sử nhận tiền</h3>
+            <div className='transhis-title'>
+                <h3>Lịch sử nhận tiền</h3>
+                <div className="filter-container">
+                    <label>
+                        Từ ngày:
+                        <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+                    </label>
+                    <label>
+                        Đến ngày:
+                        <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+                    </label>
+                    <button onClick={handleFilter}>Lọc</button>
+                </div>
+            </div>
             <div className='transhis-table'>
                 <div className="transhis-table-format title-transhis">
                     <b>Mã giao dịch</b>
@@ -48,8 +87,8 @@ const TransHis = ({ url }) => {
                     <b>Ngày giao dịch</b>
                     <b>STK nhận</b>
                 </div>
-                {
-                    data.map((item, index) => (
+                {filteredData.length > 0 ? (
+                    filteredData.map((item, index) => (
                         <div key={index} className='transhis-table-format'>
                             <p>{item["Mã GD"]}</p>
                             <p>{item["Mô tả"]}</p>
@@ -58,7 +97,9 @@ const TransHis = ({ url }) => {
                             <p>{item["Số tài khoản"]}</p>
                         </div>
                     ))
-                }
+                ) : (
+                    <div className="no-data">Không có giao dịch phù hợp!</div>
+                )}
             </div>
         </div>
     );

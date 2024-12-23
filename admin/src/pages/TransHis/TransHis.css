@@ -8,6 +8,33 @@
     font-size: 16px;
 }
 
+.transhis-title{
+    display: grid;
+    grid-template-columns:0.7fr  0.3fr ;
+}
+
+.filter-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-container label{
+    display: grid;
+    grid-template-columns: 2fr ;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-container button{
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    height: fit-content;
+}
+
 h3{
     margin-bottom: 10px;
 }
