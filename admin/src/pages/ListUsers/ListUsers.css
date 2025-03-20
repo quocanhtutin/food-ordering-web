@@ -1,6 +1,6 @@
 .list-table-format-user{
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 0.5fr;
+    grid-template-columns: 2fr 4fr 0.5fr;
     align-items: center;
     gap: 10px;
     padding: 12px 15px;
@@ -12,5 +12,4 @@ h3{
 }
 .list-table-format-user.title-user{
     background-color: #f9f9f9;
-
 }

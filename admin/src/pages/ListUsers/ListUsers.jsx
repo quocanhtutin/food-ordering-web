@@ -44,7 +44,7 @@ const ListUsers = ({ url }) => {
                 <div className="list-table-format-user title-user">
                     <b>Họ tên thành viên</b>
                     <b>Email</b>
-                    <b>Số điện thoại</b>
+                    {/* <b>Số điện thoại</b> */}
                     <b>Khác</b>
                 </div>
                 {
@@ -53,7 +53,7 @@ const ListUsers = ({ url }) => {
                             <div key={index} className='list-table-format-user'>
                                 <p>{item.name}</p>
                                 <p>{item.email}</p>
-                                <p></p>
+                                {/* <p></p> */}
                                 <p onClick={() => removeUser(item._id)} className='cursor'>X</p>
                             </div>
                         )

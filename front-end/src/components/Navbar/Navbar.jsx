@@ -56,7 +56,7 @@ const Navbar = ({ setShowLogin }) => {
 
             </div> */}
 
-            {location.pathname !== '/cart' && location.pathname !== '/payment'
+            {/*location.pathname !== '/cart' && location.pathname !== '/payment'
                 &&
                 <div className="search-bar-container">
                     <div className="search-bar">
@@ -88,7 +88,7 @@ const Navbar = ({ setShowLogin }) => {
                             ăn gì cũng được
                         </div>
                     )}
-                </div>}
+                </div>*/}
             <div className="navbar-right">
                 {location.pathname !== '/cart' && location.pathname !== '/payment' && (
                     <div className="navbar-basket-icon" onMouseEnter={() => setIsHovering(true)}
